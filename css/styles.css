@@ -28,7 +28,6 @@ textarea {
 label,
 input {
   height: 2.6rem;
-  margin: 0;
 }
 
 input,
@@ -62,15 +61,19 @@ button {
   float: right;
 }
 
-header h2 {
+.fw-400 {
   font-weight: 400;
 }
 
-header .container {
+.f-white {
   color: white;
 }
 
 .purple-bar {
   background-color: rgb(86, 43, 129);
   height: 4rem;
+}
+
+.mb {
+  margin-bottom: 1.8rem;
 }
