@@ -25,7 +25,10 @@ textarea {
   width: 100%;
 }
 
-label,
+label {
+  height: 2rem;
+}
+
 input {
   height: 2.6rem;
 }
@@ -45,10 +48,6 @@ input:focus,
 textarea:focus {
   border-color: rgb(137, 71, 204);
   border-width: 2.5px;
-}
-
-label {
-  margin-bottom: -0.6rem;
 }
 
 button {
