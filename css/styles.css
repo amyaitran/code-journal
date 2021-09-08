@@ -1,0 +1,78 @@
+body {
+  font-family: 'Raleway', 'Arial', sans-serif;
+  background-color: rgb(240, 240, 240);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+img {
+  height: 24rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+}
+
+label {
+  height: 2rem;
+}
+
+input {
+  height: 2.6rem;
+}
+
+input,
+textarea {
+  border-radius: 0.3rem;
+  border-width: 1px;
+  border-color: lightgray;
+  border-style: solid;
+  padding: 0.6rem 0.6rem;
+  font-family: 'Raleway', 'Arial', sans-serif;
+  font-size: 1.2rem;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgb(137, 71, 204);
+  border-width: 2.5px;
+}
+
+button {
+  border-radius: 0.2rem;
+  margin: 1rem 0;
+  padding: 0.6rem 1rem;
+  border: none;
+  color: white;
+  background-color: rgb(86, 43, 129);
+  float: right;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.f-white {
+  color: white;
+}
+
+.purple-bar {
+  background-color: rgb(86, 43, 129);
+  height: 4rem;
+}
+
+.mb {
+  margin-bottom: 1.8rem;
+}

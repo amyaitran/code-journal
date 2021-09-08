@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.ico">
   <link
     rel="stylesheet"
@@ -11,14 +14,52 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
   <header>
+    <div class="row purple-bar">
+      <div class="column-full container">
+        <h2 class="fw-400 f-white">Code Journal</h2>
+      </div>
+    </div>
   </header>
   <main>
-  </main>
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1>New Entry</h1>
+        </div>
+      </div>
+      <div data-view="entry-form">
+        <form id="input-form">
+        <div class="row">
+          <div class="column-half">
+            <img id="entry-img" src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half">
+              <label for="title">
+                <h4>Title</h4>
+              </label>
+              <input required name="title" id="title" type="text" class="mb">
+              <label for="photo-url">
+                <h4>Photo URL</h4>
+              </label>
+              <input required name="photo" id="photo" type="text">
+          </div>
+        </div>
+          <div class="column-full">
+            <label for="notes">
+              <h4>Notes</h4>
+            </label>
+            <textarea required rows="6" name="notes" id="notes"></textarea>
+          </div>
+          <button id="submit-btn" type="submit">SAVE</button>
+        </form>
+      </div>
+    </div>
+   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
