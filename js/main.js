@@ -4,9 +4,37 @@
 var $photoimg = document.querySelector('#entry-img');
 var $photoURL = document.querySelector('#photo');
 var $form = document.querySelector('#input-form');
+var $entriesPage = document.querySelector('#entries-page');
+var $entriesFormPage = document.querySelector('#entry-form');
+var $noEntriesText = document.querySelector('#no-entries-text');
+var $list = document.querySelector('ul');
 
 $photoURL.addEventListener('input', handleInput);
 $form.addEventListener('submit', handleSubmit);
+window.addEventListener('DOMContentLoaded', contentLoaded);
+window.addEventListener('click', switchView);
+
+function contentLoaded(event) {
+  if (data.entries.length !== 0) {
+    $noEntriesText.className = 'hidden page column-full flex jc-center';
+  } else {
+    $noEntriesText.className = 'page column-full flex jc-center';
+  }
+  for (var i = 0; i < data.entries.length; i++) {
+    $list.appendChild(renderEntry(data.entries[i]));
+  }
+}
+
+function switchView(view) {
+  var $dataView = event.target.getAttribute('data-view');
+  if ($dataView === 'entries') {
+    $entriesPage.className = 'page';
+    $entriesFormPage.className = 'page hidden';
+  } else if ($dataView === 'entry-form') {
+    $entriesPage.className = 'page hidden';
+    $entriesFormPage.className = 'page';
+  }
+}
 
 function handleInput(event) {
   $photoimg.setAttribute('src', event.target.value);
@@ -23,23 +51,11 @@ function handleSubmit(event) {
   data.entries.unshift($entry);
   $photoimg.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+  $list.prepend(renderEntry(data.entries[0]));
+  $entriesPage.className = 'page';
+  $entriesFormPage.className = 'page hidden';
+  $noEntriesText.className = 'hidden page column-full flex jc-center';
 }
-
-// DOM tree
-// <div class="row">
-//   <div class="column-full column-half">
-//     <img src="images/placeholder-image-square.jpg">
-//   </div>
-
-//   <div class="column-full column-half">
-//     <div class="row">
-//       <h2 class="mb-0">Title</h2>
-//     </div>
-
-//     <div class="row">
-//       <p>Notes Lorem ipsum </p>
-//     </div>
-//   </div>
 
 function renderEntry(entry) {
   var divRow = document.createElement('div');
@@ -56,14 +72,11 @@ function renderEntry(entry) {
   divRow3.setAttribute('class', 'row');
   divColFullColHalf.setAttribute('class', 'column-full column-half mb-2.8');
   divColFullColHalf2.setAttribute('class', 'column-full column-half mb-2.8');
-  img.setAttribute('src', data.entries[i].photo);
+  img.setAttribute('src', entry.photo);
   h2.setAttribute('class', 'mb-0');
 
-  h2.textContent = data.entries[i].title;
-  p.textContent = data.entries[i].notes;
-
-  // h2.textContent = data.entries.title;
-  // p.textContent = data.entries.notes;
+  h2.textContent = entry.title;
+  p.textContent = entry.notes;
 
   divRow.appendChild(divColFullColHalf);
   divColFullColHalf.appendChild(img);
@@ -74,12 +87,4 @@ function renderEntry(entry) {
   divRow3.appendChild(p);
 
   return divRow;
-}
-
-var $list = document.querySelector('ul');
-
-for (var i = 0; i < data.entries.length; i++) {
-  $list.appendChild(renderEntry(data.entries[i]));
-  // console.log('data entries', data.entries);
-  // console.log('data entries title', data.entries[i].title);
 }

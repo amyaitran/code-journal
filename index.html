@@ -22,21 +22,20 @@
     <div class="row purple-bar">
       <div class="column-full container">
         <h2 class="fw-400 f-white block">Code Journal</h2>
-        <h3 class="fw-400 f-white block ml">Entries</h3>
+        <a href="" data-view="entries">
+          <h3 class="fw-400 f-white block ml">Entries</h3>
+        </a>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-
-      <div data-view="entry-form" class="hidden">
-
+      <div data-view="entry-form" id="entry-form" class="hidden page">
         <div class="row">
           <div class="column-full">
             <h1>New Entry</h1>
           </div>
         </div>
-
         <form id="input-form">
         <div class="row">
           <div class="column-half">
@@ -46,7 +45,7 @@
               <label for="title">
                 <h4>Title</h4>
               </label>
-              <input required name="title" id="title" type="text" class="mb-1.8">
+              <input required name="title" id="title" type="text" class="mb-1.8e">
               <label for="photo-url">
                 <h4>Photo URL</h4>
               </label>
@@ -55,52 +54,25 @@
         </div>
           <div class="column-full">
             <label for="notes">
-              <h4>Notes</h4>
+              <h4 class="margin-0">Notes</h4>
             </label>
             <textarea required rows="6" name="notes" id="notes"></textarea>
           </div>
-          <button id="submit-btn" type="submit">SAVE</button>
+          <button id="submit-btn" data-view="entry-form" type="submit">SAVE</button>
         </form>
       </div>
-
-      <div data-view="entries">
-
+      <div data-view="entries" id="entries-page" class="page">
         <div class="row">
-
           <div class="column-full">
             <h1 class="block">Entries</h1>
-            <button class="block" id="new-btn">NEW</button>
+            <button data-view="entry-form" class="block" id="new-btn">NEW</button>
           </div>
-
-          <div class="column-full hidden flex jc-center">
+          <div id="no-entries-text" class="hidden page column-full flex jc-center">
             No entries have been recorded.
           </div>
-
-          <ul>
-
-          </ul>
-<!--
-          <div class="column-full column-half">
-            <img src="images/placeholder-image-square.jpg">
-          </div>
-
-          <div class="column-full column-half">
-            <div class="row">
-              <h2 class="mb-0">Title</h2>
-            </div>
-
-            <div class="row">
-              <p>Notes Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, ea officia saepe necessitatibus possimus nulla iusto sunt perspiciatis, distinctio sint tenetur qui excepturi! Fugiat, illum ratione! Necessitatibus, nihil. Error, aliquid. Temporibus in placeat obcaecati dolor quo quibusdam reprehenderit sequi dolorum! A quae laudantium, fugiat consectetur cupiditate eos unde doloremque cum ratione at?</p>
-            </div> -->
-
-
-
+          <ul></ul>
         </div>
-
-
       </div>
-
-
     </div>
    </main>
   <script src="js/data.js"></script>

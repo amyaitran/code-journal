@@ -64,6 +64,7 @@ button {
   color: white;
   background-color: rgb(86, 43, 129);
   float: right;
+  cursor: pointer;
 }
 
 ul {
@@ -85,10 +86,6 @@ ul {
 .purple-bar {
   background-color: rgb(86, 43, 129);
   height: 4rem;
-}
-
-.mb-1.8 {
-  margin-bottom: 1.8rem;
 }
 
 .mb-0 {
