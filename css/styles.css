@@ -12,9 +12,15 @@ h6 {
   font-family: 'Poppins', 'Arial', sans-serif;
 }
 
+p {
+  line-height: 1.6rem;
+  margin-bottom: 2.8rem;
+}
+
 img {
   height: 24rem;
   width: 100%;
+  border-radius: 6px;
   object-fit: cover;
 }
 
@@ -60,6 +66,14 @@ button {
   float: right;
 }
 
+ul {
+  padding: 0;
+}
+
+#new-btn {
+  margin-top: 1.8rem;
+}
+
 .fw-400 {
   font-weight: 400;
 }
@@ -73,6 +87,26 @@ button {
   height: 4rem;
 }
 
-.mb {
+.mb-1.8 {
   margin-bottom: 1.8rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.block {
+  display: inline-block;
+}
+
+.ml {
+  margin-left: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
 }
