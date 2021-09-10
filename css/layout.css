@@ -37,6 +37,11 @@
     flex-basis: 50%;
   }
 
+  img,
+  p {
+    margin-bottom: 2.3rem;
+  }
+
   button {
     margin: 1rem 0.75rem;
   }
@@ -45,7 +50,16 @@
     margin-left: 1.75rem;
   }
 
-  .column-half h4 {
+  #title {
+    margin-bottom: 1.8rem;
+  }
+
+  .column-half h4,
+  .column-half h2 {
     margin-top: 0;
+  }
+
+  .margin-0 {
+    margin: 0;
   }
 }

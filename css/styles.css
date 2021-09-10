@@ -12,9 +12,15 @@ h6 {
   font-family: 'Poppins', 'Arial', sans-serif;
 }
 
+p {
+  line-height: 1.6rem;
+  margin-bottom: 2.8rem;
+}
+
 img {
   height: 24rem;
   width: 100%;
+  border-radius: 6px;
   object-fit: cover;
 }
 
@@ -58,6 +64,16 @@ button {
   color: white;
   background-color: rgb(86, 43, 129);
   float: right;
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+}
+
+#new-btn {
+  margin-top: 1.8rem;
+  display: inline-block;
 }
 
 .fw-400 {
@@ -73,6 +89,22 @@ button {
   height: 4rem;
 }
 
-.mb {
-  margin-bottom: 1.8rem;
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.ml {
+  margin-left: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.block {
+  display: inline-block;
 }

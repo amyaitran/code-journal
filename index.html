@@ -21,18 +21,21 @@
   <header>
     <div class="row purple-bar">
       <div class="column-full container">
-        <h2 class="fw-400 f-white">Code Journal</h2>
+        <h2 class="fw-400 f-white block">Code Journal</h2>
+        <a href="" data-view="entries">
+          <h3 class="fw-400 f-white block ml" id="navEntries">Entries</h3>
+        </a>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <div class="row">
-        <div class="column-full">
-          <h1>New Entry</h1>
+      <div data-view="entry-form" id="entry-form" class="hidden view">
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
         </div>
-      </div>
-      <div data-view="entry-form">
         <form id="input-form">
         <div class="row">
           <div class="column-half">
@@ -42,7 +45,7 @@
               <label for="title">
                 <h4>Title</h4>
               </label>
-              <input required name="title" id="title" type="text" class="mb">
+              <input required name="title" id="title" type="text" class="mb-1.8e">
               <label for="photo-url">
                 <h4>Photo URL</h4>
               </label>
@@ -51,12 +54,24 @@
         </div>
           <div class="column-full">
             <label for="notes">
-              <h4>Notes</h4>
+              <h4 class="margin-0">Notes</h4>
             </label>
             <textarea required rows="6" name="notes" id="notes"></textarea>
           </div>
-          <button id="submit-btn" type="submit">SAVE</button>
+          <button id="submit-btn" data-view="entry-form" class="view" type="submit">SAVE</button>
         </form>
+      </div>
+      <div data-view="entries" id="entries-page" class="view">
+        <div class="row">
+          <div class="column-full">
+            <h1 class="block">Entries</h1>
+            <button data-view="entries" class="view" id="new-btn">NEW</button>
+          </div>
+          <div id="no-entries-text" class="hidden column-full flex jc-center">
+            No entries have been recorded.
+          </div>
+          <ul></ul>
+        </div>
       </div>
     </div>
    </main>
