@@ -8,6 +8,7 @@ var $entriesPage = document.querySelector('#entries-page');
 var $entriesFormPage = document.querySelector('#entry-form');
 var $noEntriesText = document.querySelector('#no-entries-text');
 var $list = document.querySelector('ul');
+var $viewElements = document.querySelectorAll('.view');
 
 $photoURL.addEventListener('input', handleInput);
 $form.addEventListener('submit', handleSubmit);
@@ -27,12 +28,12 @@ function contentLoaded(event) {
 
 function switchView(view) {
   var $dataView = event.target.getAttribute('data-view');
-  if ($dataView === 'entries') {
-    $entriesPage.className = 'page';
-    $entriesFormPage.className = 'page hidden';
-  } else if ($dataView === 'entry-form') {
-    $entriesPage.className = 'page hidden';
-    $entriesFormPage.className = 'page';
+  for (var i = 0; i < $viewElements.length; i++) {
+    if ($dataView === $viewElements[i].getAttribute('data-view')) {
+      $viewElements[i].className = 'view';
+    } else {
+      $viewElements[i].className = 'view hidden';
+    }
   }
 }
 
