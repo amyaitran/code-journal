@@ -73,6 +73,7 @@ ul {
 
 #new-btn {
   margin-top: 1.8rem;
+  display: inline-block;
 }
 
 .fw-400 {
@@ -92,10 +93,6 @@ ul {
   margin-bottom: 0;
 }
 
-.block {
-  display: inline-block;
-}
-
 .ml {
   margin-left: 2rem;
 }
@@ -106,4 +103,8 @@ ul {
 
 .jc-center {
   justify-content: center;
+}
+
+.block {
+  display: inline-block;
 }

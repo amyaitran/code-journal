@@ -9,27 +9,32 @@ var $entriesFormPage = document.querySelector('#entry-form');
 var $noEntriesText = document.querySelector('#no-entries-text');
 var $list = document.querySelector('ul');
 var $viewElements = document.querySelectorAll('.view');
+var $newButton = document.querySelector('#new-btn');
+var $navEntries = document.querySelector('#navEntries');
 
 $photoURL.addEventListener('input', handleInput);
 $form.addEventListener('submit', handleSubmit);
 window.addEventListener('DOMContentLoaded', contentLoaded);
-window.addEventListener('click', switchView);
+$newButton.addEventListener('click', handleViewNavigation);
+$navEntries.addEventListener('click', handleViewNavigation);
 
 function contentLoaded(event) {
   if (data.entries.length !== 0) {
-    $noEntriesText.className = 'hidden page column-full flex jc-center';
-  } else {
-    $noEntriesText.className = 'page column-full flex jc-center';
+    $noEntriesText.classList.add('hidden');
   }
   for (var i = 0; i < data.entries.length; i++) {
     $list.appendChild(renderEntry(data.entries[i]));
   }
 }
 
+function handleViewNavigation(event) {
+  var targetView = event.target.getAttribute('data-view');
+  switchView(targetView);
+}
+
 function switchView(view) {
-  var $dataView = event.target.getAttribute('data-view');
   for (var i = 0; i < $viewElements.length; i++) {
-    if ($dataView === $viewElements[i].getAttribute('data-view')) {
+    if (view !== $viewElements[i].getAttribute('data-view')) {
       $viewElements[i].className = 'view';
     } else {
       $viewElements[i].className = 'view hidden';
@@ -56,6 +61,7 @@ function handleSubmit(event) {
   $entriesPage.className = 'page';
   $entriesFormPage.className = 'page hidden';
   $noEntriesText.className = 'hidden page column-full flex jc-center';
+  switchView('entry-form');
 }
 
 function renderEntry(entry) {
