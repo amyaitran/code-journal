@@ -71,6 +71,10 @@ ul {
   padding: 0;
 }
 
+i {
+  font-size: 1.25rem;
+}
+
 #new-btn {
   margin-top: 1.8rem;
   display: inline-block;
@@ -107,4 +111,18 @@ ul {
 
 .block {
   display: inline-block;
+}
+
+.purple {
+  color: rgb(86, 43, 129);
+}
+
+.pos-abs {
+  position: absolute;
+  right: 0;
+  top: 1.6rem;
+}
+
+.pos-rel {
+  position: relative;
 }
