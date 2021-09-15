@@ -79,6 +79,7 @@ function handleSubmit(event) {
     }
   }
   switchView('entry-form');
+  $form.reset();
 }
 
 function renderEntry(entry) {
@@ -103,13 +104,6 @@ function renderEntry(entry) {
   h2.setAttribute('class', 'entry mb-0');
   editIcon.setAttribute('class', 'fas fa-pen purple');
 
-  img.setAttribute('data-entry-id', entry.entryId);
-  h2.setAttribute('data-entry-id', entry.entryId);
-  p.setAttribute('data-entry-id', entry.entryId);
-  editIcon.setAttribute('data-entry-id', entry.entryId);
-  divRow.setAttribute('data-entry-id', entry.entryId);
-  li.setAttribute('data-entry-id', entry.entryId);
-
   h2.textContent = entry.title;
   p.textContent = entry.notes;
 
@@ -124,7 +118,7 @@ function renderEntry(entry) {
 }
 
 function handleEdit(event) {
-  if (event.target.getAttribute('class') === 'fas fa-pen purple') {
+  if (event.target.className === 'fas fa-pen purple') {
     for (var i = 0; i < data.entries.length; i++) {
       if (JSON.stringify(data.entries[i].entryId) === event.target.getAttribute('data-entry-id')) {
         data.editing = data.entries[i];
