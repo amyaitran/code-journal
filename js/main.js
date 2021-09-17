@@ -103,6 +103,7 @@ function renderEntry(entry) {
   img.setAttribute('class', 'entry');
   h2.setAttribute('class', 'entry mb-0');
   editIcon.setAttribute('class', 'fas fa-pen purple');
+  li.setAttribute('data-entry-id', entry.entryId);
 
   h2.textContent = entry.title;
   p.textContent = entry.notes;
@@ -120,7 +121,7 @@ function renderEntry(entry) {
 function handleEdit(event) {
   if (event.target.className === 'fas fa-pen purple') {
     for (var i = 0; i < data.entries.length; i++) {
-      if (JSON.stringify(data.entries[i].entryId) === event.target.getAttribute('data-entry-id')) {
+      if (JSON.stringify(data.entries[i].entryId) === event.target.closest('li').getAttribute('data-entry-id')) {
         data.editing = data.entries[i];
       }
     }
