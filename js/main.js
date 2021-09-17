@@ -59,8 +59,6 @@ function handleSubmit(event) {
     $entry.entryId = data.nextEntryId;
     data.nextEntryId++;
     data.entries.unshift($entry);
-    $photoimg.setAttribute('src', 'images/placeholder-image-square.jpg');
-    $form.reset();
     $list.prepend(renderEntry(data.entries[0]));
     $noEntriesText.classList.add('hidden');
   } else {
@@ -80,6 +78,7 @@ function handleSubmit(event) {
   }
   switchView('entry-form');
   $form.reset();
+  $photoimg.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
 
 function renderEntry(entry) {
