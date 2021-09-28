@@ -69,6 +69,15 @@ button {
 
 ul {
   padding: 0;
+  list-style-type: none;
+}
+
+i {
+  font-size: 1.25rem;
+  position: absolute;
+  right: 0;
+  top: 1.6rem;
+  cursor: pointer;
 }
 
 #new-btn {
@@ -107,4 +116,12 @@ ul {
 
 .block {
   display: inline-block;
+}
+
+.purple {
+  color: rgb(86, 43, 129);
+}
+
+.pos-rel {
+  position: relative;
 }
