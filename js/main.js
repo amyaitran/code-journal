@@ -12,6 +12,9 @@ var $photoUrlField = document.querySelector('#photo');
 var $notesField = document.querySelector('#notes');
 var $formHeading = document.querySelector('h1');
 var $ul = document.querySelector('ul');
+// var $delete = document.querySelector('.delete');
+// var $cancelBtn = document.querySelector('.cancel-btn');
+// var $confirmBtn = document.querySelector('.confirm-btn');
 
 window.addEventListener('DOMContentLoaded', contentLoaded);
 $photoUrlField.addEventListener('input', handleInput);
