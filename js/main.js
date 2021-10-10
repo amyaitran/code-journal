@@ -15,6 +15,7 @@ var $delete = document.querySelector('.delete');
 var $cancelBtn = document.querySelector('.cancel-btn');
 var $confirmBtn = document.querySelector('.confirm-btn');
 var $overlay = document.querySelector('.overlay');
+var $alignDiv = document.querySelector('#align-div');
 
 window.addEventListener('DOMContentLoaded', contentLoaded);
 $photoUrlField.addEventListener('input', handleInput);
@@ -132,6 +133,7 @@ function handleEdit(event) {
     }
     $delete.className = 'mt-1.5 flex delete';
     $formHeading.textContent = 'Edit Entry';
+    $alignDiv.className = 'column-full align-center jc-between flex';
     $photoimg.setAttribute('src', data.editing.photo);
     $photoUrlField.value = data.editing.photo;
     $titleField.value = data.editing.title;
@@ -150,7 +152,6 @@ function handleCancelDelete(event) {
 
 function handleConfirmDelete(event) {
   var $li = document.querySelectorAll('li');
-  // console.log($li);
   for (var i = 0; i < data.entries.length; i++) {
     if (data.entries[i].entryId === data.editing.entryId) {
       data.entries.splice(i, 1);
@@ -158,10 +159,7 @@ function handleConfirmDelete(event) {
   }
   for (var j = 0; j < $li.length; j++) {
     if (parseInt($li[j].getAttribute('data-entry-id')) === data.editing.entryId) {
-      // $li[j].remove();
-      while ($li[j].firstChild) {
-        $li[j].removeChild($li[j].firstChild);
-      }
+      $li[j].remove();
     }
   }
   $overlay.className = 'hidden overlay';

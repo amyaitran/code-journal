@@ -44,6 +44,10 @@
   justify-content: space-between;
 }
 
+.jc-right {
+  justify-content: right;
+}
+
 .align-center {
   align-items: center;
 }
@@ -68,6 +72,10 @@
 
   .column-half {
     width: 50%;
+  }
+
+  i {
+    top: 0.15rem;
   }
 
   img {

@@ -70,13 +70,14 @@ button {
 ul {
   padding: 0;
   list-style-type: none;
+  width: 100%;
 }
 
 i {
   font-size: 1.25rem;
   position: absolute;
   right: 0;
-  top: 1.6rem;
+  top: 1.2rem;
   cursor: pointer;
 }
 
@@ -107,18 +108,11 @@ i {
   color: rgb(86, 43, 129);
 }
 
-/* .modal {
-  height: 8rem;
-  width: 24rem;
-
-  background-color: white;
-} */
-
 .modal {
-  height: 12rem;
+  height: 10rem;
   width: 26rem;
   background-color: white;
-  margin: 8rem auto;
+  margin: 15rem auto;
   padding: 1.5rem;
   border-radius: 0.5rem;
 }
