@@ -11,14 +11,21 @@ var $titleField = document.querySelector('#title');
 var $photoUrlField = document.querySelector('#photo');
 var $notesField = document.querySelector('#notes');
 var $formHeading = document.querySelector('h1');
-var $ul = document.querySelector('ul');
+var $delete = document.querySelector('.delete');
+var $cancelBtn = document.querySelector('.cancel-btn');
+var $confirmBtn = document.querySelector('.confirm-btn');
+var $overlay = document.querySelector('.overlay');
+var $alignDiv = document.querySelector('#align-div');
 
 window.addEventListener('DOMContentLoaded', contentLoaded);
 $photoUrlField.addEventListener('input', handleInput);
 $form.addEventListener('submit', handleSubmit);
 $newButton.addEventListener('click', handleViewNavigation);
 $navEntries.addEventListener('click', handleViewNavigation);
-$ul.addEventListener('click', handleEdit);
+$list.addEventListener('click', handleEdit);
+$delete.addEventListener('click', handleDeleteModal);
+$cancelBtn.addEventListener('click', handleCancelDelete);
+$confirmBtn.addEventListener('click', handleConfirmDelete);
 
 function contentLoaded(event) {
   if (data.entries.length !== 0) {
@@ -124,11 +131,38 @@ function handleEdit(event) {
         data.editing = data.entries[i];
       }
     }
-    switchView('entries');
+    $delete.className = 'mt-1.5 flex delete';
     $formHeading.textContent = 'Edit Entry';
+    $alignDiv.className = 'column-full align-center jc-between flex';
     $photoimg.setAttribute('src', data.editing.photo);
     $photoUrlField.value = data.editing.photo;
     $titleField.value = data.editing.title;
     $notesField.value = data.editing.notes;
+    switchView('entries');
   }
+}
+
+function handleDeleteModal(event) {
+  $overlay.className = 'overlay';
+}
+
+function handleCancelDelete(event) {
+  $overlay.className = 'hidden overlay';
+}
+
+function handleConfirmDelete(event) {
+  var $li = document.querySelectorAll('li');
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing.entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
+  for (var j = 0; j < $li.length; j++) {
+    if (parseInt($li[j].getAttribute('data-entry-id')) === data.editing.entryId) {
+      $li[j].remove();
+    }
+  }
+  $overlay.className = 'hidden overlay';
+  data.editing = null;
+  switchView('entry-form');
 }
